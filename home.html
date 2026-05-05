@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Biodata Fahri</title>
+        <link rel="icon" type="" href="teladan.webp">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    
+        <!-- FIXED Font Awesome -->
+        <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+        <link rel="stylesheet" href="style.css">
+    </head>    
+<body>
+    <script>
+if (localStorage.getItem("login") !== "true") {
+  window.location.href = "index.html";
+}
+</script>
+    
+    <nav class="navbar fade-in">
+        <a href="#" class="logo fade-from-left">BIO<span>DATA</span></a>
+    
+        <!-- HAMBURGER MENU -->
+        <div class="menu-toggle">☰</div>
+
+        <div class="nav-links">
+            <a href="home.html" class="nav-link" style="color: var(--neon-blue);">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="family.html" class="nav-link">Family</a>
+            <a href="photo.html" class="nav-link">Photo</a>
+            <a href="#" onclick="logout()" class="nav-link">Logout</a>
+        </div>
+    </nav>    
+
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>HALO SAYA FAHRI DARMAWAN</h1>
+                    <H2>Saya Seorang Pelajar</H2>
+                    <p2>Perkenalkan, saya Fahri Darmawan, seorang 
+                        pelajar SMK yang tertarik pada dunia teknologi dan desain. Saya memiliki komitmen 
+                        untuk terus berkembang dan belajar hal hal baru</p2>
+                        <div class="btn-group fade-in-delay">
+                            <a href="about.html" class="btn">
+                                <i class="fa-solid fa-rocket"></i> view about
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-container fade-in-slow">
+                        <div class="profile-wrapper">
+                            <img src="P1.jpg" alt="P1" class="profile-img">
+                            <div class="glow-effect"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer> 
+            <div class="container"> 
+                <div class="footer-content"> 
+                    <div class="footer-logo">FAI<span>-IRI</span></div> 
+                    <p class="footer-text">Learning, creating, and evolving in the world of technology</p> 
+                    <div class="social-links"> 
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a> 
+                        <a href="https://youtube.com/@fahridarmawan-i5f?si=UOhpiqRQx85aB9af" class="social-link"><i class="fab fa-youtube"></i></a> 
+                        <a href="https://www.instagram.com/fahridar725?igsh=YXFnaTFnNjhyaDRz" class="social-link"><i class="fab fa-instagram"></i></a> 
+                        <a href="https://www.tiktok.com/@jakakaellek?_t=ZS-90jlwcFjS7U&_r=1" class="social-link"><i class="fab fa-tiktok"></i></a> 
+                    </div> 
+                    <p class="copyright">© 2025 Fahri Darmawan Biodata.</p> 
+                </div> 
+            </div> 
+        </footer>
+    
+    <script src="main.js"></script>
+</body>
+<script>
+function logout() {
+  localStorage.removeItem("login");
+  window.location.href = "index.html";
+}
+</script>
+</html>

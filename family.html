@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata My Family</title>
+    <link rel="icon" type="" href="teladan.webp">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Family Page CSS -->
+    <style>
+        .family-section {
+            padding: 140px 40px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        .family-title {
+            font-family: "Orbitron", sans-serif;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .family-card:nth-child(4),
+        .family-card:nth-child(5) {
+            grid-column: span 1;
+            justify-self: center;
+        }
+        .family-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(22, 140, 219, 0.3);
+            padding: 20px;
+            border-radius: 18px;
+            transition: var(--transition);
+            box-shadow: 0 0 16px rgba(22, 140, 219, 0.1);
+        }
+        .family-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(22, 140, 219, 0.5);
+            border-color: var(--neon-blue);
+        }
+        .family-card img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            transition: 0.4s ease-in-out;
+        }
+        .family-card:hover img {
+            transform: scale(1.05);
+        }
+        .family-card h3 {
+            font-family: "Orbitron", sans-serif;
+            font-size: 1.6rem;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+        }
+        .family-card p {
+            color: var(--text-dim);
+            margin: 4px 0;
+            font-size: 0.95srem;
+        }
+    @media (max-width: 900px) {
+        .family-grid {
+            grid-template-columns: repeat(2, 1fr);
+            max-width: 700px;
+        }
+        .family-card:nth-child(4),
+        .family-card:nth-child(5) {
+            justify-self: center;
+            grid-column: span 1;
+        }
+    }
+    @media (max-width: 600px) {
+        .family-grid {
+            grid-template-columns: 1fr;
+            max-width: 400px;
+        }
+        .family-card {
+            width: 100%;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+    }
+    @media (max-width: 430px) {
+        .family-title {
+            font-size: 2.3rem;
+        }
+        .family-card {
+            padding: 15px;
+        }
+        .family-card img {
+            border-radius: 12px;
+        }
+    }
+    .btn-primary {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        padding: 10px 18px;
+        border-radius: 10px;
+        background: var(--neon-blue);
+        color: #000;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 8px 30px rgba(22,140,219,0.18);
+        transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 40px rgba(22,140,219,0.28);
+    }
+    .fade-in {
+        opacity: 0;
+        transform: translateY(25px);
+        animation: fadeInUp 1s ease forwards;
+    }
+    .fade-in-delay {
+        opacity: 0;
+        transform: translateY(25px);
+        animation: fadeInUp 1.2s ease forwards;
+    }
+    .scale-in {
+        opacity: 0;
+        transform: scale(0.8);
+        animation: scaleIn 1.2s ease forwards;
+    }
+    .slide-down {
+        opacity: 0;
+        transform: translateY(-25px);
+        animation: slideDown 0.9s ease forwards;
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(25px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.8); }
+        to   { opacity: 1; transform: scale(1); }
+    }
+    @keyframes slideDown {
+        from { opacity: 0; transform: translateY(-25px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+    .family-card {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    .family-card.show {
+        animation: scaleIn 0.8s ease forwards;
+    }
+    </style>
+</head>
+
+<body>
+<script>
+if (localStorage.getItem("login") !== "true") {
+  window.location.href = "index.html";
+}
+
+function logout() {
+  localStorage.removeItem("login");
+  window.location.href = "index.html";
+}
+</script>
+    <nav class="navbar slide-down">
+      <a href="#" class="logo fade-left">BIO<span>DATA</span></a>
+
+        <div class="menu-toggle">☰</div>
+
+        <div class="nav-links">
+          <a href="home.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="family.html" class="nav-link" style="color: var(--neon-blue);">Family</a>
+          <a href="photo.html" class="nav-link">Photo</a>
+          <a href="#" onclick="logout()" class="nav-link">Logout</a>
+      </div>
+  </nav>
+  
+  <section class="family-section">
+    <h1 class="family-title fade-in">MY FAMILY</h1>
+  
+    <div style="margin-top:14px; margin-bottom: 30px;">
+        <a class="btn-primary fade-in-delay" href="home.html"><i class="fa-solid fa-house"></i> Ke Home</a>
+    </div>
+
+      <div class="family-grid">
+
+            <div class="family-card">
+                <img src="foto ayah.jpeg" alt="Ayah">
+                <h3>Ayah</h3>
+                <p>Nama: Erafi Darmawan</p>
+                <p>Pekerjaan: Wiraswasta</p>
+                <p>Umur: 44 Tahun</p>
+                <p>TTL: Purbasari, 27 Oktober 1981</p>
+            </div>
+
+            <div class="family-card">
+                <img src="foto ibu.jpeg" alt="Ibu">
+                <h3>Ibu</h3>
+                <p>Nama: Nur Irmayani</p>
+                <p>Pekerjaan: Ibu Rumah Tangga</p>
+                <p>Umur: 38 Tahun</p>
+                <p>TTL: Pematang Siantar, 24 Januari 1986</p>
+            </div>
+
+            <div class="family-card">
+                <img src="foto abang.jpeg" alt="Abang">
+                <h3>Abang</h3>
+                <p>Nama: Fahri Darmawan</p>
+                <p>Pekerjaan: Pelajar</p>
+                <p>Umur: 16 Tahun</p>
+                <p>TTL: Purbasari, 9 Juni 2009</p>
+            </div>
+
+            <div class="family-card">
+                <img src="foto adik.jpeg" alt="Adik 1">
+                <h3>Adik 1</h3>
+                <p>Nama: Rizky Sakha Darmawan</p>
+                <p>Pekerjaan: Pelajar SD</p>
+                <p>Umur: 10 Tahun</p>
+                <p>TTL: Beringin, 25 Juli 2015</p>
+            </div>
+
+            <div class="family-card">
+                <img src="poto adik ke dua.jpeg" alt="Adik 2">
+                <h3>Adik 2</h3>
+                <p>Nama: New Born</p>
+                <p>Pekerjaan: -</p>
+                <p>Umur: -</p>
+                <p>TTL: Beringin, 8 Oktober 2025</p>
+            </div>
+
+        </div>
+    </section>
+    <script src="main.js"></script>
+</body>
+</html>
